@@ -1,2 +1,4 @@
 #!/usr/bin/env ruby
-input = gets.chomp.split("")
+first, second, third = gets.chomp.split("")
+
+puts first.to_i + second.to_i + third.to_i
