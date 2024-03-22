@@ -8,11 +8,33 @@ for i in 0..N-1 do
     if i == j
       next
     end
+cases  = [
+'a', # 0
+'aaaaaa', # 1
+'abcd', # 6
+'aabbcc', # 6
+'abcde', # 10
+'abcabc', # 9
+]
 
-    s = S.dup
-    s[i], s[j] = s[j], s[i]
-    patterns.push(s) unless patterns.include?(s)
+
+def factorial(n)
+  (1..n).reduce(1, :*)
+end
+
+puts "========= 別解 1 ========="
+cases.each do |s|
+  uniq_s = s.chars.uniq
+  combinations = factorial(uniq_s.size) / (factorial(2) * factorial(uniq_s.size - 2))
+
+  for u_s in uniq_s do
+    u_s_count = s.count(u_s)
+    if u_s_count > 1
+      combinations += 1
+    end
   end
+  
+  puts "#{s}: #{combinations}"
 end
 
 puts patterns.size
