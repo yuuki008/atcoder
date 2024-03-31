@@ -1,2 +1,9 @@
 #!/usr/bin/env ruby
-input = gets.chomp.split("")
+A = []
+
+while line = gets
+  break if line.chomp.empty?
+  A << line.chomp
+end
+
+puts A.reverse
