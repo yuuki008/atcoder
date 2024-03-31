@@ -77,3 +77,29 @@ end
 
 puts "No"
 ```
+
+別解で 2 週間分の曜日に格納することでエッジケースをカバーできるみたい
+
+![スクリーンショット](./1.png)
+
+```ruby
+w = A + B
+
+d = []
+D.each do |x|
+  day = x % (A + B)
+  d << day
+  d << day + w
+end
+
+d.sort!
+
+for i in 1..d.size - 1
+  if d[i] - d[i-1] > B
+    puts "Yes"
+    exit
+  end
+end
+
+puts "No"
+```
