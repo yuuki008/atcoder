@@ -1,2 +1,29 @@
 #!/usr/bin/env ruby
-input = gets.chomp.split("")
+N = gets.chomp.to_i
+A = gets.chomp.split.map(&:to_i)
+M = gets.chomp.to_i
+B = gets.chomp.split.map(&:to_i)
+L = gets.chomp.to_i
+C = gets.chomp.split.map(&:to_i)
+Q = gets.chomp.to_i
+X = gets.chomp.split.map(&:to_i)
+
+all_patterns = []
+
+for a in A
+  for b in B
+    for c in C
+      all_patterns << a + b + c
+    end
+  end
+end
+
+all_patterns.uniq!
+
+X.each do |x|
+  if all_patterns.include?(x)
+    puts "Yes"
+  else
+    puts "No"
+  end
+end
