@@ -1,2 +1,4 @@
 #!/usr/bin/env ruby
-input = gets.chomp.split("")
+S = gets.chomp
+
+puts S.gsub(/\|.*?\|/, '')
