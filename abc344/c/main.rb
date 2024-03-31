@@ -8,20 +8,18 @@ C = gets.chomp.split.map(&:to_i)
 Q = gets.chomp.to_i
 X = gets.chomp.split.map(&:to_i)
 
-all_patterns = []
+all_patterns = {}
 
 for a in A
   for b in B
     for c in C
-      all_patterns << a + b + c
+      all_patterns[a + b + c] = true
     end
   end
 end
 
-all_patterns.uniq!
-
 X.each do |x|
-  if all_patterns.include?(x)
+  if all_patterns[x]
     puts "Yes"
   else
     puts "No"
