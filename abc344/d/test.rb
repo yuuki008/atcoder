@@ -1,7 +1,25 @@
 #!/usr/bin/env ruby
-T = gets.chomp
-N = gets.chomp.to_i
-AA = (1..N).map { gets.chomp.split[1..-1]}
+# easy problem
+# T = 'aaabbbbcccc'
+# N = 6
+# AA = [
+# ['aa', 'aaa'],
+# ['dd', 'ddd'],
+# ['ab', 'aabb'],
+# ['bbaa', 'bbbc', 'bbb', 'bbcc'],
+# ['cc',' bcc'],
+# ['ccc', 'cccc', 'ccccc']
+# ]
+
+# tle proble
+N = 100
+AA = 100.times.map {
+  rand(1..10).times.map do
+    length = rand(1..10)
+    (1..length).map { ('a'..'z').to_a[rand(26)] }.join
+  end
+}
+T = AA[0][0] + AA[-1][-1]
 
 dp = Array.new(N+1) { Array.new(T.size+1, 1e9) }
 
