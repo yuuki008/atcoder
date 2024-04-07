@@ -1,15 +1,16 @@
-n, t = gets.split.map(&:to_i)
-scores = Array.new(n, 0)
-hash = Hash.new(0)
-hash[0] = n
-t.times do
-  a, b = gets.split.map(&:to_i)
-  a -= 1
-  hash[scores[a]] -= 1
-  if hash[scores[a]] == 0
-    hash.delete(scores[a])
-  end
-  scores[a] += b
-  hash[scores[a]] += 1
-  puts hash.length
+N, T = gets.split.map(&:to_i)
+AB = T.times.map { gets.split.map(&:to_i) }
+
+players = [0] * (N + 1)
+counts = Hash.new(0)
+counts[0] = N
+
+AB.each do |a, b|
+  counts[players[a]] -= 1
+  counts.delete(players[a]) if counts[players[a]] == 0
+
+  players[a] += b
+  counts[players[a]] += 1
+
+  puts counts.size
 end
