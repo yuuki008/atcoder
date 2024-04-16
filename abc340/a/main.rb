@@ -1,2 +1,12 @@
 #!/usr/bin/env ruby
-input = gets.chomp.split("")
+A, B, D = gets.split.map(&:to_i)
+
+temp = A
+
+ans = []
+while temp <= B
+  ans << temp
+  temp += D
+end
+
+puts ans.join(' ')
