@@ -1,2 +1,10 @@
 #!/usr/bin/env ruby
-input = gets.chomp.split("")
+decimal = gets.to_i
+
+ans = 0
+while decimal % 2 == 0
+  ans += 1
+  decimal /= 2
+end
+
+puts ans
