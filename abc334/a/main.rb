@@ -1,2 +1,4 @@
 #!/usr/bin/env ruby
-input = gets.chomp.split("")
+B, G = gets.chomp.split(" ").map(&:to_i)
+
+puts B > G ? "Bat" : "Glove"
