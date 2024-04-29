@@ -1,2 +1,5 @@
 #!/usr/bin/env ruby
-input = gets.chomp.split("")
+A = gets.chomp.split.map(&:to_i)
+B = gets.chomp.split.map(&:to_i)
+
+puts (A.sum - B.sum) + 1
