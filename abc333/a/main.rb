@@ -1,2 +1,9 @@
-#!/usr/bin/env ruby
-input = gets.chomp.split("")
+N = gets.chomp.to_i
+
+ans = ""
+
+N.times do
+  ans += N.to_s
+end
+
+puts ans
