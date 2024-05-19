@@ -1,0 +1,9 @@
+{
+  "code-runner.executorMap": {
+    "cpp": "cd $dir && rm $dir/$fileNameWithoutExt && clang++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir/$fileNameWithoutExt"
+  },
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.runInTerminal": true,
+  "code-runner.saveFileBeforeRun": true,
+  "lldb.launch.expressions": "native"
+}
