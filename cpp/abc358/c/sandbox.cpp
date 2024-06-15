@@ -1,23 +1,24 @@
-
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <string>
+
 using namespace std;
 
 int main() {
-  int n, m;
-  cin >> n >> m;
-  cin.ignore();
+  int n = 3;
+  int m = 5;
 
-  vector<string> S(n);
-  for (int i = 0; i < n; i++) getline(cin, S[i]);
+  vector<string> S = {
+    "11100",
+    "01110",
+    "00111",
+  };
 
   vector<int> masks(n, 0);
 
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < m; ++j) {
-      if (S[i][j] == 'o') {
+      if (S[i][j] == '1') {
         masks[i] |= (1 << j);
       }
     }
