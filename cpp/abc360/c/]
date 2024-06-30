@@ -1,0 +1,45 @@
+#include <climits>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+/* INPUT */
+/*  2  2 3  3 5 */
+/* 33 40 2 12 6 */
+int main() {
+  /* int n=5; */
+  /* vector<int> A = { 2, 2, 3, 3, 5 }; */
+  /* vector<int> W = { 33, 40, 2, 12, 6 }; */
+
+  int n;
+  cin >> n;
+
+  vector<int> A(n);
+  for (int i=0; i<n; i++) cin >> A[i];
+
+  vector<int> W(n);
+  for (int i=0; i<n; i++) cin >> W[i];
+
+  vector<vector<int>>tmp(n+1);
+  for(int i=0; i<n; i++) {
+    int v = A[i];
+    tmp[v].push_back(W[i]);
+  }
+
+  int ans = 0;
+
+  for(int i=0; i<n; i++) {
+    if (tmp[i].size() < 2) continue;
+
+    long long max = INT_MIN;
+    long long sum = 0;
+    for(long long j=0; j<tmp[i].size();j++) {
+      sum += tmp[i][j];
+      if (tmp[i][j] > max) max = tmp[i][j];
+    }
+    ans += sum - max;
+  }
+
+  cout << ans << endl;
+  return 0;
+}
